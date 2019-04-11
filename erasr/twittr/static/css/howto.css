@@ -1,0 +1,23 @@
+
+body{
+    font-family: Raleway, Helvetica, sans-serif;
+    height: 100%;
+    background-color: #F2F2F2;
+
+}
+
+.howtocontainer{
+    position:fixed;
+    top: 9%;
+    right: 0%;
+    text-align: center;
+    width: 22%;
+    height: 30%;
+    border-radius: 15px;
+    background-color: #F2F2F2;
+
+}
+
+#badgenumber{
+    float: left;
+}

@@ -1,0 +1,274 @@
+/** CSS STYLING FOR SEARCH FORM
+
+
+
+PINK COLOR: #F78181; **/
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:800,400);
+
+body {
+    font-family: Raleway, Helvetica, sans-serif;
+    height: 100%;
+    background-color: #F2F2F2;
+}
+
+/** Search parameters box styling **/
+.container{
+	background-color: white;
+	border-radius: 25px;
+	width: 50%;
+}
+
+#id_keyword{
+    width: 70%;
+    border-radius: 25px;
+    border: 2px solid #F78181;
+    padding: 5px;
+    margin: 5px;
+}
+#searchbykeywordlabel{
+	margin: 10px;
+}
+
+#searchicon{
+    position: relative;
+    left: -35px;
+}
+.row{
+	margin: 10px;
+}
+#optionbuttons{
+	background-color: white;
+	cursor: pointer;
+	color: black;
+	border-color: #F78181;
+}
+#optionbuttons:hover{
+	background-color: #F78181;
+	color: white;
+}
+
+#btngroup{
+	margin-top: 50px;
+}
+
+/** SUBMIT BUTTON STYLING **/
+
+#submitbtn{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	background: transparent;
+	color: black;
+	border: solid 4px;
+	border-color: #F78181;
+	height: 50px;
+	width: 30%;
+}
+#submitbtn:hover{
+    background-color: #F78181;
+    color: white;
+}
+
+/** TWITTER BIO CARD STYLING **/
+
+.profilecard{
+	position: fixed;
+	float: left;
+    z-index: 1;
+    margin-left: 1%;
+    border-radius: 8px;
+    width: 20%;
+    background-color: white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.profileimage{
+    border-radius: 10px; /* Rounded edges */
+    float: left;
+    height: 48px;
+    width: 48px;
+}
+
+.profilecardstats{
+    width:400px;
+}
+.profilecardstats a{
+    color: #000000;
+    text-decoration: none;
+}
+.profilecardstats li{
+    width: 80px;
+    display: inline-block;
+}
+
+.biopic{
+    float:left;
+    border:4px solid #FFF;
+    margin: 5%;
+    height: 35%;
+    width: 35%;
+    border-radius: 8px;
+}
+.bioprofilename{
+    font-size: 18px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+.bioprofilename:hover{
+    text-decoration: underline;
+}
+
+.biousername{
+    color: #66757f;
+    font-size: 12px;
+}
+.biousername:hover{
+    color: #2FC2EF;
+    text-decoration: underline;
+}
+.bioinfo{
+    font-size:14px;
+
+}
+#statstitles{
+	margin-top: 12%;
+	text-align: left;
+    font-size: 10px;
+    color: #8899a6;
+    text-transform: uppercase;
+}
+
+#statstitles:hover{
+    color: #2FC2EF;
+}
+#statnum{
+    color: #2FC2EF;
+}
+#followingnum{
+    text-align: left;
+    margin-left: 4%;
+}
+#followernum{
+    text-align: left;
+    margin-left: 12%;
+}
+.profilename{
+    color: #292f33;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/** Tweet Container Search Results Styling - Move This to Tweets.css**/
+
+/** MAYBE A GOOD FIX FOR 3 LINE PROBLEM **/
+#tweetparagraphcontent{
+    color: #000000;
+    margin: 0 0 0px;
+    margin-left: 60px; 
+}
+#tweetlinkref{
+    text-decoration: none;
+}
+
+#loadmore:hover{
+	background-color: #F78181;
+	color: white;
+}
+#erasebtn{
+    border-radius: 10px;
+    margin-top: 30px;
+	margin-bottom: 30px;
+	background: transparent;
+	color: black;
+	border: solid 4px;
+	border-color: #F78181;
+	height: 50px;
+	width: 30%;
+}
+#erasebtn:hover{
+    background-color: #F78181;
+	color: white;
+
+}
+
+#logoresponsive {
+    height: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/** Twitter Alert **/
+#twitteralert{
+
+    border-radius: 10px;
+    position: relative;
+    width: 50%;
+    margin: 50px auto;
+}
+
+/** Tweet Image - change the width to 100% if we get working on site videos **/
+
+.embeddedimg{
+    width: 65%;
+    height: auto;
+    z-index: 1;
+}
+
+/** Overlayed Play Button for Media **/
+
+.videocontent{
+    position: relative;
+}
+.playbutton{
+    color: #F78181;
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    z-index: 15;
+}
+
+#poweredbylogo{
+    width: 13%;
+}
+#poweredby{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+@media only screen and (max-width: 768px) {
+
+body html{
+    height: 100%;
+    width: 100%;
+}
+
+.profilecard{
+    display: none;
+}
+
+.howtocontainer{
+    display: none;
+}
+.tweetlink{
+text-decoration: none;
+}
+
+#maincontainer{
+    width: 100%;
+}
+#optionbuttons{
+margin-top: 10px;
+}
+#year, #day, #month{
+    margin-top: 5px;
+}
+#poweredby{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 5%;
+    width: 80%;
+}
+}

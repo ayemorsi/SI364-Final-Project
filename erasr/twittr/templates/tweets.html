@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+
+    {% for tweet in tweets %}
+        <li>
+            <input class="checkbox" type="checkbox" name="action" />
+            <div class = "tweet" id ="{{tweet.id}}">
+                <div class = "profilepic">
+                    <a href = "#"></a>
+                    <img class = "profileimage img-responsive" src ="{{profile.profile_pic}}" />
+                </div>
+                <div class = "entry">
+                    <a class = "profilename" href="https://twitter.com/{{profile.username}}"
+                     target="_blank" title="Profile Name">{{profile.username}}</a>
+                    <a class="username" href="https://twitter.com/{{profile.username}}"
+                     target="_blank" >@{{profile.username}}</a>
+                    <a class ="entry-date">
+                        <span class="publishdate" title="">{{tweet.created_at}}</span>
+                    </a><br>
+                   <a id="tweetlinkref" href="https://twitter.com/{{profile.username}}/status/{{tweet.id}}" target="_blank"><p
+                      id="tweetparagraphcontent" class="entry-content">{{tweet.text|safe}}</p></a><br>
+                    {% if tweet.images %}
+                        <div class="imagecontent" align="center">
+                            <img class ="embeddedimg img-responsive" src="{{tweet.image_url|safe}}">
+                        </div>
+                    {% elif tweet.media%}
+                        <div class="videocontent" align="center">
+                            <img class ="embeddedimg img-responsive" src="{{tweet.image_url|safe}}">
+                            <a href="{{tweet.media_url|safe}}" target="_blank">
+                                <i class="fa fa-play-circle fa-4x playbutton"></i>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+    <div class="maxdata" data-maxid={{max_id}}></div>
+    <button type="button" id="loadmore" class="btn btn-default btn-block">Load More</button>

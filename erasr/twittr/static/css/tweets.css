@@ -1,0 +1,135 @@
+/** TWEET CONTAINER STYLING FOR ERASR.IO**/
+
+body{
+    background-color: #F2F2F2;
+}
+.tweetcontainertitle{
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+}
+.tweetcontainer{
+    border-radius: 10px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0 auto;
+    background-color: white;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    max-height: 800px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+.tweet{
+    min-height: 48px;
+    width: 465px;
+}
+
+.profileimage{
+    border-radius: 10px; /* Rounded edges */
+    float: left;
+    margin-bottom: 15px;
+    height: 48px;
+    width: 48px;
+    margin: 6px;
+}
+
+.profilename{
+    color: #292f33;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.checkbox{
+    float: right;
+}
+
+.entry-date{
+    text-decoration: none;
+}
+.entry-content{
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+}
+.username{
+    font-size: 13px;
+    color: #8899a6;
+    text-decoration: none;
+}
+
+.username:hover{
+    text-decoration: none;
+}
+.publishdate:before{
+    content: "\00B7";
+}
+
+.publishdate{
+    color: #8899a6;
+    font-size: 80%;
+    text-decoration: none;
+}
+
+.publishdate:hover{
+    text-decoration: hover;
+}
+
+.tweetcontainer li:after {
+    border-bottom: 1px solid #e1e8ed;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 465px;
+    margin: 10px;
+    background: #e1e8ed;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.checkAll{
+    float: right;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+#checkAll{
+    float: right;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+
+body, html {
+    background-color: #F2F2F2;
+    font-family: Raleway, Helvetica, sans-serif;
+    height: 100%;
+}
+
+#tweetcontainer{
+    width: 100%;
+
+}
+
+.tweet{
+    min-height: 48px;
+    width: 100%;
+}
+
+#tweetcontainer-fluid{
+    padding-left: 0px;
+}
+.tweetcontainer li:after {
+    border-bottom: 1px solid #e1e8ed;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 10px;
+    background: #e1e8ed;
+}
+#checkbox, #checkAll{
+    margin-right: 10px;
+}
+}

@@ -1,0 +1,125 @@
+/*
+Homepage of Erasr.io
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+#maintcontentbox {
+    position: absolute;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid;
+    border-color: #FAFAFA;
+    width: 25%;
+    left: 55%;
+    padding: 25px;
+    color: #F78181;
+    top: 15%;
+    font-size: 1vw;
+}
+
+body, html {
+    background-color: #F2F2F2;
+    font-family: 'Raleway', sans-serif;
+    height: 100%;
+}
+
+h1 {
+    font-size: 3em;
+    color: #F78181;
+}
+
+.loginheader{
+    color: #F78181;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 150%;
+}
+
+.loginheader:after{
+    border-bottom: 1px solid #f2f2f2;
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 10px;
+    background: #e1e8ed;
+}
+
+p {
+
+    font-size: 1.2em;
+}
+
+footer{
+    position: fixed;
+    bottom: 0px;
+}
+#logoresponsive{
+    width: 60%;
+}
+#mainlogoheader{
+    position: relative;
+    right: 15%;
+    top: 100px;
+}
+#phoneimage{
+    position: relative;
+    width: 25%;
+    right: 15%;
+    top: 100px;
+}
+
+#poweredbylogo{
+    width: 13%;
+}
+#poweredby{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+/* MOBILE CODING ONLY FOR ERASR.io Homepage - Applicable to all devices below 768px */
+
+@media only screen and (max-width: 768px) {
+
+body, html {
+    background-color: #F2F2F2;
+    font-family: Raleway, Helvetica, sans-serif;
+    height: 100%;
+}
+
+#maintcontentbox {
+    position: relative;
+    border-radius: 15px;
+    background-color: white;
+    border: 1px solid;
+    border-color: #FAFAFA;
+    height: 60%;
+    width: 100%;
+    left: 0%;
+    font-size: 1.3rem;
+    padding: 25px;
+    color: #F78181;
+}
+
+footer{
+    display: none;
+}
+
+#phoneimage{
+    position: relative;
+    width: 60%;
+    right: 0%;
+    top: 0px;
+}
+
+#poweredby{
+    position: absolute;
+    bottom: -500px;
+    right: 0px;
+}
+
+}
+/* END MOBILE CSS */

@@ -1,0 +1,378 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<header>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="{% static 'css/Hover-master/css/hover.css' %}" rel="stylesheet" media="all">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/searchform.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tweets.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-social-gh-pages/bootstrap-social.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/howto.css' %}" />
+    <script src="{% static 'js/searchform.js' %}"></script>
+
+
+<title>Erasr.io Twitter - Manage Your Twitter Foortprint. Search, Save, and delete old tweets posts.</title>
+
+
+<meta name="description" content=" Manage Your Social Media Foortprint. Search through and delete old social media posts. Control your professional social media impact. Loopking for a job? Delete harmful social media posts.">
+<link rel="author" href="https://vitalizr.io"/>
+<meta property="og:title" content="Erasr.io - Manage Your Social Media Foortprint. Search through and delete old social media posts"/>
+<!-- FILL THIS IN <meta property="og:image" content="http://www.iacquire.com/some-thumbnail.jpg"/> -->
+<meta property="og:url" content="https://erasr.io"/>
+<meta property="og:description" content="Manage Your Social Media Foortprint. Search through and delete old social media posts. Control your professional social media impact. Looking for a job? Delete harmful social media posts."/>
+
+
+</header>
+<body>
+<!--Top navigation bar-->
+<div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-comment"></span> Contact</a></li>
+        <li><a><span class="glyphicon glyphicon-user"></span> Help</a></li>
+        <li><a href="#" type="submit" value="Logout" onclick="appendUrl('twittr','/twittr/logout')"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+    </ul>
+</div>
+
+<h1 id="mainlogoheader"><img id="logoresponsive" class="img-responsive" src="{% static 'images/erasrlogo.png' %}" /></h1>
+
+
+<!-- Profile Card-->
+<div class ="container-fluid profilecard" align="left">
+    <img class = "img-responsive biopic" src ="{{profile.profile_pic}}" > <br>
+    <a href="https://twitter.com/{{profile.username}}" target="_blank"><span class = "bioprofilename">{{profile.username}}</span></a>  <br>
+    <a href="https://twitter.com/{{profile.name}}" target="_blank"><span class = "biousername">@{{profile.name}}</span></a><br><br><br><br>
+
+    <ul class="list-inline" id="statstitles">
+        <li>Tweets</li>
+        <li>Following</li>
+        <li>Followers</li>
+    </ul>
+    <ul class="list-inline" id="statnum">
+        <li id="tweetnum">{{profile.tweet_count}}</li>
+        <li id="followingnum">{{profile.following}}</li>
+        <li id="followernum">{{profile.followers}}</li>
+    </ul>
+
+</div>
+
+<!-- How to / Help Container -->
+<div class ="container-fluid howtocontainer">
+    <br>
+    <h2> How it works <i class="glyphicon glyphicon-question-sign"></i></h2>
+    <br>
+    <ul class="list-group steps">
+        <li class="list-group-item"><span id="badgenumber" class="badge">1</span>Fill out the search form</li>
+        <li class="list-group-item"><span id="badgenumber" class="badge">2</span>View your results below</li>
+        <li class="list-group-item"><span id="badgenumber" class="badge">3</span>Select which tweets you would like to erase</li>
+        <li class="list-group-item"><span id="badgenumber" class="badge">4</span>Select Erase and confirm to finish</li>
+    </ul>
+</div>
+
+<!-- MAIN SEARCH PARAMETERS CONTAINER  -->
+<div id="maincontainer" class="container">
+
+    <form id ="searchform">
+        {% csrf_token %}
+
+        <div id="searchbykeywordlabel">{{form.keyword.label}}</div>
+        <br>
+
+        <div id="searchbox" align="center"><input type="search" id="id_keyword" placeholder="Enter Search Terms...">
+            <span id="searchicon" class="glyphicon glyphicon-search"></span>
+        </div>
+    <br><br>
+
+    <div align="left" id="startdate">
+        <h><strong>Start Date</strong></h>
+        <div class="row">
+        <div class="col-sm-6" >
+            <select class="form-control" id="month">
+                <option>Select Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <select class="form-control" id="day">
+                <option>Select Day</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+            </select>
+        </div>
+        <div class="col-sm-3">
+            <select class="form-control" id="year">
+                <option>Select Year</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
+                <option>2015</option>
+                <option>2016</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+    <div align="left" id="enddate">
+        <h><strong>End Date </strong></h>
+         <div class="row">
+            <div class="col-sm-6">
+                <select class="form-control" id="month">
+                    <option>Select Month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" id="day">
+                    <option>Select Day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                </select>
+            </div>
+         <div class="col-sm-3">
+             <select class="form-control" id="year">
+                    <option>Select Year</option>
+                    <option>2006</option>
+                    <option>2007</option>
+                    <option>2008</option>
+                    <option>2009</option>
+                    <option>2010</option>
+                    <option>2011</option>
+                    <option>2012</option>
+                    <option>2013</option>
+                    <option>2014</option>
+                    <option>2015</option>
+                    <option>2016</option>
+            </select>
+         </div>
+      </div>
+
+    </div>
+
+    <div id="btngroup">
+        <h><strong>Options</strong></h>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <button type="button" id="optionbuttons" class="btn btn-default btn-block">All
+                    <i class="fa fa-commenting-o"></i></button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" id="optionbuttons" class="btn btn-default btn-block">Mentions
+                <i class="fa fa-at"></i></button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" id="optionbuttons" class="btn btn-default btn-block">Retweets
+                    <i class="fa fa-retweet"></i></button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <button type="button" id="optionbuttons" class="btn btn-default btn-block">Quotes
+                <i class="fa fa-quote-right"></i></button></div>
+            <div class="col-sm-4">
+                <button type="button" id="optionbuttons" class="btn btn-default btn-block">Images
+                    <i class="fa fa-camera-retro"></i></button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" id="optionbuttons" class="btn btn-default btn-block">Media
+                    <i class="fa fa-caret-square-o-right"></i></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div align="right">
+        <input type="submit" id="submitbtn" class="hvr-pulse-grow" value="Submit"/>
+    </div>
+
+</form>
+</div>
+
+
+<!-- Twitter API Limitations ALERT -->
+<div  id="twitteralert" class="alert alert-info" > <span class="glyphicon glyphicon-info-sign"></span>
+We are currently limited by Twitter to your last 3,200 tweets. We are working on a solution. Thank you
+    for your patience.
+</div>
+
+
+<!--TWEET CONTAINER-->
+
+<div class = "tweetcontainertitle"><h1>Latest Tweets</h1></div>
+    <br>
+    <div class="container" id="tweetcontainer">
+        <div id="tweetcontainer-fluid" class="container-fluid">
+
+            <ul class = "tweetcontainer">
+                <input type="checkbox" id="checkAll"/><label class="checkAll">Check All</label>
+                <br><br>
+
+
+                {% for tweet in tweets %}
+                    <li>
+                        <input  id="checkbox" class="checkbox" type="checkbox" name="action" />
+                        <div class = "tweet" id="{{tweet.id}}">
+                            <div class = "profilepic">
+                                <a href = "https://twitter.com/{{profile.screen_name}}" target="_blank"></a>
+                                <img class = "profileimage img-responsive" src ="{{profile.profile_pic}}" />
+                            </div>
+                           <div class = "entry">
+                                <a class = "profilename" href="https://twitter.com/{{profile.username}}"
+                                   target="_blank" title="Profile Name">{{profile.name}}</a>
+                                <a class="username" href="https://twitter.com/{{profile.username}}" target="_blank">@{{profile.username}}</a>
+                                <a class ="entry-date">
+                                <span class="publishdate" title="">{{tweet.created_at}}</span>
+                                </a><br>
+                                 <a class ='tweetlink' >
+
+                                <a id="tweetlinkref" href="https://twitter.com/{{profile.username}}/status/{{tweet.id}}" target="_blank"><p
+                                    id="tweetparagraphcontent" class="entry-content">{{tweet.text}}</p></a><br>
+                                {% if tweet.images %}
+                                    <div class="imagecontent" align="center">
+                                        <img class="embeddedimg img-responsive" src="{{tweet.image_url|safe}}">
+                                    </div>
+                                {% elif tweet.media%}
+                                    <div class="videocontent" align="center">
+                                        <img class ="embeddedimg img-responsive" src="{{tweet.image_url|safe}}">
+                                        <a href="{{tweet.media_url|safe}}" target="_blank">
+                                            <i class="fa fa-play-circle fa-4x playbutton"></i>
+                                        </a>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+                <div class="maxdata" data-maxid={{max_id}}></div>
+            <button type="button" id="loadmore" class="btn btn-default btn-block">Load More</button>
+        </ul>
+    </div>
+</div>
+
+
+    <!-- ERASE BUTTON AND CONFIRM MODAL-->
+    <div class="text-center">
+        <input type="submit" id="erasebtn" class="hvr-pulse-grow" value="Erase" data-toggle="modal"
+               data-target="#ConfirmEraseModal"/>
+    </div>
+    <div id="ConfirmEraseModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Erase Tweets</h4>
+            </div>
+        <div class="modal-body">
+            <p>Are you sure you want to erase all <strong><span class="tweetcount"></span></strong> tweets?</p>
+        </div>
+        <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+             <button id ="yeserasetweets" type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<div align="right" id="poweredby">
+<a href="https://vitalizr.io"> Powered By <img id="poweredbylogo" class="img-resposive" src="{% static 'images/vitalizr-logo.png' %}" alt="vitalizr.io Flint Web and Mobile Application Development"  caption="Vitalizr.io Logo"></a>
+</div>
+
+</body>
+</html>

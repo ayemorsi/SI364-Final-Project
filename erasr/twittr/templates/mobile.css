@@ -1,0 +1,29 @@
+/** MOBILE CSS STYLING FOR IPhone 6
+ERASR.io
+**/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+
+body html{
+	height: 100%;
+	width: 100%;
+}
+
+.profilecard{
+	display: none;
+}
+
+.howtocontainer{
+	display: none;
+}
+
+#maincontainer{
+	width: 100%;
+	height: 100%;
+}
+
+#tweetcontainer{
+	width: 100%;
+	height: 100%;
+}
+
+}
